@@ -11,17 +11,17 @@ import Foundation
 // MARK: - Brastlewark Codable
 
 struct Brastlewark {
-  let brastlewark: [Gnome]
+  let gnomes: [Gnome]
 }
 
 extension Brastlewark: Decodable {
   private enum GnomesApiResponseCodingKeys: String, CodingKey {
     case brastlewark = "Brastlewark"
   }
-
+  
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: GnomesApiResponseCodingKeys.self)
-    brastlewark = try container.decode([Gnome].self, forKey: .brastlewark)
+    gnomes = try container.decode([Gnome].self, forKey: .brastlewark)
   }
 }
 
@@ -30,7 +30,7 @@ extension Brastlewark: Decodable {
 struct Gnome {
   let id: Int
   let age: Int
-  let friends: [String]
+  let friends: [String]?
   let hairColor: String
   let height: Float
   let weight: Float
@@ -51,17 +51,17 @@ extension Gnome: Decodable {
     case professions = "professions"
     case thumbnail = "thumbnail"
   }
-
+  
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: GnomeCodingKeys.self)
-   id = try container.decode(Int.self, forKey: .id)
-   age = try container.decode(Int.self, forKey: .age)
-   friends = try container.decode([String].self, forKey: .friends)
-   hairColor = try container.decode(String.self, forKey: .hairColor)
-   height = try container.decode(Float.self, forKey: .height)
-   weight = try container.decode(Float.self, forKey: .weight)
-   name = try container.decode(String.self, forKey: .name)
-   professions = try container.decode([String].self, forKey: .professions)
-   thumbnail = try container.decode(String.self, forKey: .thumbnail)
+    id = try container.decode(Int.self, forKey: .id)
+    age = try container.decode(Int.self, forKey: .age)
+    friends = try container.decodeIfPresent([String].self, forKey: .friends)
+    hairColor = try container.decode(String.self, forKey: .hairColor)
+    height = try container.decode(Float.self, forKey: .height)
+    weight = try container.decode(Float.self, forKey: .weight)
+    name = try container.decode(String.self, forKey: .name)
+    professions = try container.decode([String].self, forKey: .professions)
+    thumbnail = try container.decode(String.self, forKey: .thumbnail)
   }
 }

@@ -22,6 +22,16 @@
 		E7C7AA4B22D4513400838767 /* GnomesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C7AA4A22D4513400838767 /* GnomesModel.swift */; };
 		E7D86B1822D6E04A00B0C86F /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D86B1722D6E04A00B0C86F /* JSONParameterEncoder.swift */; };
 		E7D86B1A22D6E36300B0C86F /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D86B1922D6E36300B0C86F /* Routable.swift */; };
+		E7ED43F722D706A200E04475 /* LoadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED43F622D706A200E04475 /* LoadableViewController.swift */; };
+		E7ED440122D711EE00E04475 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440022D711EE00E04475 /* HomeViewController.swift */; };
+		E7ED440322D7121E00E04475 /* GnomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440222D7121E00E04475 /* GnomeViewCell.swift */; };
+		E7ED440522D7125800E04475 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440422D7125800E04475 /* HomeInteractor.swift */; };
+		E7ED440722D713BB00E04475 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440622D713BB00E04475 /* HomePresenter.swift */; };
+		E7ED440922D713C800E04475 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440822D713C800E04475 /* HomeWireframe.swift */; };
+		E7ED440B22D713EF00E04475 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440A22D713EF00E04475 /* HomeProtocols.swift */; };
+		E7ED440D22D7141100E04475 /* GnomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440C22D7141100E04475 /* GnomeViewModel.swift */; };
+		E7ED440F22D7148500E04475 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440E22D7148500E04475 /* ErrorHandling.swift */; };
+		E7ED441122D71AAE00E04475 /* GnomeCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED441022D71AAE00E04475 /* GnomeCardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +64,16 @@
 		E7C7AA4A22D4513400838767 /* GnomesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomesModel.swift; sourceTree = "<group>"; };
 		E7D86B1722D6E04A00B0C86F /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		E7D86B1922D6E36300B0C86F /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
+		E7ED43F622D706A200E04475 /* LoadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewController.swift; sourceTree = "<group>"; };
+		E7ED440022D711EE00E04475 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E7ED440222D7121E00E04475 /* GnomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeViewCell.swift; sourceTree = "<group>"; };
+		E7ED440422D7125800E04475 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		E7ED440622D713BB00E04475 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		E7ED440822D713C800E04475 /* HomeWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
+		E7ED440A22D713EF00E04475 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		E7ED440C22D7141100E04475 /* GnomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeViewModel.swift; sourceTree = "<group>"; };
+		E7ED440E22D7148500E04475 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		E7ED441022D71AAE00E04475 /* GnomeCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeCardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +115,8 @@
 		E7C7AA0E22D43DC300838767 /* Brastlewark */ = {
 			isa = PBXGroup;
 			children = (
+				E7ED43F822D7070800E04475 /* Modules */,
+				E7ED43F522D7066A00E04475 /* Common */,
 				E7C7AA4922D4510200838767 /* Models */,
 				E7C7AA2F22D43FC200838767 /* Networking */,
 				E7C7AA0F22D43DC300838767 /* AppDelegate.swift */,
@@ -169,6 +191,86 @@
 				E7C7AA4A22D4513400838767 /* GnomesModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E7ED43F522D7066A00E04475 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED43F622D706A200E04475 /* LoadableViewController.swift */,
+				E7ED440E22D7148500E04475 /* ErrorHandling.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E7ED43F822D7070800E04475 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED43F922D7071400E04475 /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E7ED43F922D7071400E04475 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED43FF22D711B400E04475 /* Model */,
+				E7ED43FE22D7119E00E04475 /* Protocols */,
+				E7ED43FD22D70FDA00E04475 /* Wireframe */,
+				E7ED43FC22D70FC100E04475 /* Presenter */,
+				E7ED43FB22D70F9400E04475 /* Interactor */,
+				E7ED43FA22D70F8D00E04475 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E7ED43FA22D70F8D00E04475 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED440022D711EE00E04475 /* HomeViewController.swift */,
+				E7ED440222D7121E00E04475 /* GnomeViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7ED43FB22D70F9400E04475 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED440422D7125800E04475 /* HomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E7ED43FC22D70FC100E04475 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED440622D713BB00E04475 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E7ED43FD22D70FDA00E04475 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED440822D713C800E04475 /* HomeWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		E7ED43FE22D7119E00E04475 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED440A22D713EF00E04475 /* HomeProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E7ED43FF22D711B400E04475 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7ED440C22D7141100E04475 /* GnomeViewModel.swift */,
+				E7ED441022D71AAE00E04475 /* GnomeCardViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,15 +376,25 @@
 			files = (
 				E7C7AA4822D44EE000838767 /* GnomesAPI.swift in Sources */,
 				E7C7AA3B22D4430500838767 /* ParameterEncoding.swift in Sources */,
+				E7ED440922D713C800E04475 /* HomeWireframe.swift in Sources */,
+				E7ED43F722D706A200E04475 /* LoadableViewController.swift in Sources */,
+				E7ED440B22D713EF00E04475 /* HomeProtocols.swift in Sources */,
+				E7ED440522D7125800E04475 /* HomeInteractor.swift in Sources */,
 				E7C7AA4422D446F000838767 /* Router.swift in Sources */,
 				E7C7AA4B22D4513400838767 /* GnomesModel.swift in Sources */,
 				E7C7AA4622D44E2C00838767 /* NetworkManager.swift in Sources */,
 				E7C7AA3722D4412E00838767 /* HTTPMethod.swift in Sources */,
+				E7ED440D22D7141100E04475 /* GnomeViewModel.swift in Sources */,
 				E7C7AA3922D4417400838767 /* HTTPTask.swift in Sources */,
+				E7ED440322D7121E00E04475 /* GnomeViewCell.swift in Sources */,
 				E7D86B1A22D6E36300B0C86F /* Routable.swift in Sources */,
 				E7C7AA1222D43DC300838767 /* ViewController.swift in Sources */,
 				E7C7AA1022D43DC300838767 /* AppDelegate.swift in Sources */,
+				E7ED440122D711EE00E04475 /* HomeViewController.swift in Sources */,
+				E7ED441122D71AAE00E04475 /* GnomeCardViewModel.swift in Sources */,
+				E7ED440F22D7148500E04475 /* ErrorHandling.swift in Sources */,
 				E7D86B1822D6E04A00B0C86F /* JSONParameterEncoder.swift in Sources */,
+				E7ED440722D713BB00E04475 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

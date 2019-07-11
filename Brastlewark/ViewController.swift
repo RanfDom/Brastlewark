@@ -13,9 +13,6 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    NetworkManager().requestProfile { [weak self] result in
-      print(result)
-    }
   }
 }
 

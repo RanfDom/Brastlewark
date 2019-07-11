@@ -25,22 +25,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Brastlewark/ViewController.swift"
-            timestampString = "584511479.604463"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Brastlewark/Networking/Manager/NetworkManager.swift"
             timestampString = "584511479.605181"
             startingColumnNumber = "9223372036854775807"
@@ -79,22 +63,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "init(from:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Brastlewark/Models/GnomesModel.swift"
-            timestampString = "584511479.606951"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
             landmarkName = "init(from:)"
             landmarkType = "7">
          </BreakpointContent>

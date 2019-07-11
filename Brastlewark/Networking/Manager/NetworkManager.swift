@@ -27,7 +27,7 @@ struct NetworkManager {
   static let environment : NetworkEnvironment = .production
   let router = Router<GnomesAPI>()
   
-  func requestProfile(completion:@escaping (GnomesServiceResult) -> ()) {
+  func requestGnomes(completion:@escaping (GnomesServiceResult) -> ()) {
     
     router.request(.gnomes) { (data, response, error) in
       
