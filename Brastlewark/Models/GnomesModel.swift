@@ -8,20 +8,20 @@
 
 import Foundation
 
-// MARK: - Brastlewark Decodable
+// MARK: - Brastlewark Codable
 
-struct GnomesApiResponse {
-  let gnomes: [Gnome]
+struct Brastlewark {
+  let brastlewark: [Gnome]
 }
 
-extension GnomesApiResponse: Decodable {
+extension Brastlewark: Decodable {
   private enum GnomesApiResponseCodingKeys: String, CodingKey {
-    case gnomes = "Brastlewark"
+    case brastlewark = "Brastlewark"
   }
-  
+
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: GnomesApiResponseCodingKeys.self)
-    gnomes = try container.decode([Gnome].self, forKey: .gnomes)
+    brastlewark = try container.decode([Gnome].self, forKey: .brastlewark)
   }
 }
 
@@ -30,12 +30,12 @@ extension GnomesApiResponse: Decodable {
 struct Gnome {
   let id: Int
   let age: Int
-  let friends: [Gnome]
+  let friends: [String]
   let hairColor: String
   let height: Float
   let weight: Float
   let name: String
-  let professions: [Profession]
+  let professions: [String]
   let thumbnail: String
 }
 
@@ -51,34 +51,17 @@ extension Gnome: Decodable {
     case professions = "professions"
     case thumbnail = "thumbnail"
   }
-  
+
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: GnomeCodingKeys.self)
    id = try container.decode(Int.self, forKey: .id)
    age = try container.decode(Int.self, forKey: .age)
-   friends = try container.decode([Gnome].self, forKey: .friends)
+   friends = try container.decode([String].self, forKey: .friends)
    hairColor = try container.decode(String.self, forKey: .hairColor)
    height = try container.decode(Float.self, forKey: .height)
    weight = try container.decode(Float.self, forKey: .weight)
    name = try container.decode(String.self, forKey: .name)
-   professions = try container.decode([Profession].self, forKey: .professions)
+   professions = try container.decode([String].self, forKey: .professions)
    thumbnail = try container.decode(String.self, forKey: .thumbnail)
-  }
-}
-
-// MARK: - Profession Decodable
-
-struct Profession {
-  let title: String
-}
-
-extension Profession: Decodable {
-  enum ProfessionCodingKeys: String, CodingKey {
-    case title
-  }
-  
-  init(from decoder: Decoder) throws {
-    let jobContainer = try decoder.container(keyedBy: ProfessionCodingKeys.self)
-    title = try jobContainer.decode(String.self, forKey: .title)
   }
 }

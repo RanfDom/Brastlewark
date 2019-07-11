@@ -8,61 +8,63 @@
 
 import Foundation
 
-struct NetworkManager {
-  private let router = Router<GnomesAPI>()
-
-  func getGnomes(completition: @escaping(_ gnomes: [Gnome]?, _ error: String?)->()) {
-    router.request(.all) { (data, response, error) in
-      guard error == nil else {
-        completition(nil, "Review your network connection")
-        return
-      }
-      
-      if let response = response as? HTTPURLResponse {
-        
-        let result = self.handleNetworkResponse(response)
-        switch result {
-          case .success:
-            guard let responseData = data else {
-              completition(nil, NetworkResponse.noData.rawValue)
-              return
-            }
-            do {
-              let apiResponse = try JSONDecoder().decode(GnomesApiResponse.self, from: responseData)
-              completition(apiResponse.gnomes, nil)
-            } catch {
-                completition(nil, NetworkResponse.unableToDecode.rawValue)
-            }
-        case .failure(let networkFailureError):
-          completition(nil, networkFailureError)
-        }
-        
-      }
-      
-    }
-  }
-  
-  fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
-    switch response.statusCode {
-    case 200...299: return .success
-    case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
-    default: return .failure(NetworkResponse.failed.rawValue)
-    }
-  }
-
-}
-
-enum NetworkResponse: String {
+enum NetworkResponse:String {
   case success
+  case authenticationError = "You need to be authenticated first."
   case badRequest = "Bad request"
-  case failed = "Network reques failed"
-  case noData = "Response returned with no data"
-  case unableToDecode = "Response could not be decoded"
+  case outdated = "The url you requested is outdated."
+  case failed = "Network request failed."
+  case noData = "Response returned with no data to decode."
+  case unableToDecode = "We could not decode the response."
 }
 
-enum Result<String> {
+enum Result<String>{
   case success
   case failure(String)
 }
 
-
+struct NetworkManager {
+  static let environment : NetworkEnvironment = .production
+  let router = Router<GnomesAPI>()
+  
+  func requestProfile(completion:@escaping (GnomesServiceResult) -> ()) {
+    
+    router.request(.gnomes) { (data, response, error) in
+      
+      if error != nil {
+        completion(.error("Please check your network connection."))
+      } else if let response = response as? HTTPURLResponse {
+        let result = self.handleNetworkResponse(response)
+        switch result {
+        case .success:
+          guard let responseData = data else {
+            completion(.error("No data"))
+            return
+          }
+          do {
+            let brastlewarkInfo = try JSONDecoder().decode(Brastlewark.self, from: responseData)
+            completion(.success(brastlewarkInfo))
+            
+          }catch {
+            completion(.error("Parser error"))
+          }
+        case .failure(let error):
+          completion(.error(error))
+        }
+      }
+      
+    }
+    
+  }
+  
+  
+  fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
+    switch response.statusCode {
+    case 200...299: return .success
+    case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
+    case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
+    case 600: return .failure(NetworkResponse.outdated.rawValue)
+    default: return .failure(NetworkResponse.failed.rawValue)
+    }
+  }
+}

@@ -8,48 +8,41 @@
 
 import Foundation
 
-class Router<EndPoint: EndPointType>: NetworkRouter {
-  private var task: URLSessionTask?
+public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
+
+protocol NetworkRouter: class {
+  associatedtype EndPoint: Routable
+  func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
+}
+
+class Router<EndPoint: Routable>: NetworkRouter {
   
-  func request(_ route: EndPoint, completition: @escaping NetworkRouterCompletion) {
+  func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
     let session = URLSession.shared
-    
+    var task: URLSessionTask?
     do {
       let request = try self.buildRequest(from: route)
-      task =  session.dataTask(with: request, completionHandler: { (data, response, error) in
+      task = session.dataTask(with: request, completionHandler: { data, response, error in
+        completion(data, response, error)
       })
-    } catch {
-      completition(nil, nil, error)
+    }catch {
+      completion(nil, nil, error)
     }
-    self.task?.resume()
+    task?.resume()
   }
   
-  func cancel() {
-    self.task?.cancel()
-  }
-
   fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
-//    var request = URLRequest(url: ,
-//                             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-//                             timeoutInterval: 10.0)
-    var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path))
+    var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
+                             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+                             timeoutInterval: 10.0)
     
     request.httpMethod = route.httpMethod.rawValue
-    
-    do {
-      
-      switch route.task {
-      case .request:
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-      case .download:
-        print("here")
-      }
-      
-      return request
-      
-    } catch {
-      throw error
+    switch route.task {
+    case .request:
+      request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     }
+    return request
     
   }
+  
 }

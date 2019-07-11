@@ -8,18 +8,36 @@
 
 import Foundation
 
-public enum GnomesAPI {
-  case all
+enum NetworkEnvironment {
+  case qa
+  case production
+  case staging
 }
 
-extension GnomesAPI: EndPointType {
+public enum GnomesAPI {
+  case gnomes
+}
+
+extension GnomesAPI: Routable {
+  
+  var environmentBaseURL : String {
+    switch NetworkManager.environment {
+    case .production: return "https://raw.githubusercontent.com/rrafols/"
+    case .qa: return "https://raw.githubusercontent.com/rrafols/"
+    case .staging: return "https://raw.githubusercontent.com/rrafols/"
+    }
+  }
+  
   var baseURL: URL {
-    guard let url = URL(string: "https://raw.githubusercontent.com/") else { fatalError("baseURL could not be configured.")}
+    guard let url = URL(string: environmentBaseURL) else { fatalError("baseURL could not be configured.")}
     return url
   }
   
   var path: String {
-    return "rrafols/mobile_test/master/data.json"
+    switch self {
+    case .gnomes:
+      return "mobile_test/master/data.json"
+    }
   }
   
   var httpMethod: HTTPMethod {
@@ -27,8 +45,13 @@ extension GnomesAPI: EndPointType {
   }
   
   var task: HTTPTask {
-    return .request
+    switch self {
+    case .gnomes:
+      return .request
+    }
   }
   
-  
+  var headers: HTTPHeaders? {
+    return nil
+  }
 }
