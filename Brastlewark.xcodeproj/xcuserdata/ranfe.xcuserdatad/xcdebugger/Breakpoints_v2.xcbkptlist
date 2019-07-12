@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Brastlewark/Networking/Manager/NetworkManager.swift"
-            timestampString = "584511479.605181"
+            filePath = "Brastlewark/Modules/Home/View/HomeViewController.swift"
+            timestampString = "584611065.552217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "requestProfile(completion:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "show(gnomes:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Brastlewark/Networking/Manager/NetworkManager.swift"
-            timestampString = "584511479.605767"
+            filePath = "Brastlewark/Modules/Home/View/GnomeViewCell.swift"
+            timestampString = "584611065.552904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "requestProfile(completion:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "configure(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Brastlewark/Models/GnomesModel.swift"
-            timestampString = "584511479.606202"
+            filePath = "Brastlewark/Modules/Home/View/HomeViewController.swift"
+            timestampString = "584611065.5532041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "init(from:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
