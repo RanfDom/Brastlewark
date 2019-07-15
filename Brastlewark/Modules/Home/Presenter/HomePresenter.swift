@@ -35,10 +35,6 @@ extension HomePresenter: HomeInteractorOutputProtocol {
   }
 
   func didFind(_ gnome: Gnome?) {
-    guard let gnome = gnome else {
-      view?.show(error: "Gnome not found")
-      return
-    }
-    // send to detail
+    // TODO: if found Send to detail
   }
 }

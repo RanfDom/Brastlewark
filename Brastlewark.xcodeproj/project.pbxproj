@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E74ACF4422DC417600B072D9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440622D713BB00E04475 /* HomePresenter.swift */; };
 		E7C7AA1022D43DC300838767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C7AA0F22D43DC300838767 /* AppDelegate.swift */; };
 		E7C7AA1222D43DC300838767 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C7AA1122D43DC300838767 /* ViewController.swift */; };
 		E7C7AA1522D43DC300838767 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7C7AA1322D43DC300838767 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		E7ED440F22D7148500E04475 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED440E22D7148500E04475 /* ErrorHandling.swift */; };
 		E7ED441122D71AAE00E04475 /* GnomeCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED441022D71AAE00E04475 /* GnomeCardViewModel.swift */; };
 		E7ED441522D85E9700E04475 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7ED441422D85E9700E04475 /* Home.storyboard */; };
+		F3E81245FF56E265CE7AB429 /* Pods_Brastlewark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9636A03731920522E772F8DD /* Pods_Brastlewark.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6FD708F38C44F75B435DF332 /* Pods-Brastlewark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brastlewark.debug.xcconfig"; path = "Target Support Files/Pods-Brastlewark/Pods-Brastlewark.debug.xcconfig"; sourceTree = "<group>"; };
+		9636A03731920522E772F8DD /* Pods_Brastlewark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Brastlewark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C299083E6322DCD118D031D1 /* Pods-Brastlewark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brastlewark.release.xcconfig"; path = "Target Support Files/Pods-Brastlewark/Pods-Brastlewark.release.xcconfig"; sourceTree = "<group>"; };
 		E7C7AA0C22D43DC300838767 /* Brastlewark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brastlewark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C7AA0F22D43DC300838767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7C7AA1122D43DC300838767 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E81245FF56E265CE7AB429 /* Pods_Brastlewark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,12 +102,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21468CA6DB5AD19F357E84D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9636A03731920522E772F8DD /* Pods_Brastlewark.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2401ADD096577961D1E72DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FD708F38C44F75B435DF332 /* Pods-Brastlewark.debug.xcconfig */,
+				C299083E6322DCD118D031D1 /* Pods-Brastlewark.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E7C7AA0322D43DC300838767 = {
 			isa = PBXGroup;
 			children = (
 				E7C7AA0E22D43DC300838767 /* Brastlewark */,
 				E7C7AA2322D43DC500838767 /* BrastlewarkTests */,
 				E7C7AA0D22D43DC300838767 /* Products */,
+				B2401ADD096577961D1E72DB /* Pods */,
+				21468CA6DB5AD19F357E84D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -283,9 +308,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7C7AA2922D43DC500838767 /* Build configuration list for PBXNativeTarget "Brastlewark" */;
 			buildPhases = (
+				C3583CE4350C2A9955614EF5 /* [CP] Check Pods Manifest.lock */,
 				E7C7AA0822D43DC300838767 /* Sources */,
 				E7C7AA0922D43DC300838767 /* Frameworks */,
 				E7C7AA0A22D43DC300838767 /* Resources */,
+				D91DDC183189FE07074ECE86 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -373,6 +400,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C3583CE4350C2A9955614EF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Brastlewark-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D91DDC183189FE07074ECE86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Brastlewark/Pods-Brastlewark-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Brastlewark/Pods-Brastlewark-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Brastlewark/Pods-Brastlewark-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E7C7AA0822D43DC300838767 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -407,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7C7AA2522D43DC500838767 /* BrastlewarkTests.swift in Sources */,
+				E74ACF4422DC417600B072D9 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +628,7 @@
 		};
 		E7C7AA2A22D43DC500838767 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FD708F38C44F75B435DF332 /* Pods-Brastlewark.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -576,6 +647,7 @@
 		};
 		E7C7AA2B22D43DC500838767 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C299083E6322DCD118D031D1 /* Pods-Brastlewark.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

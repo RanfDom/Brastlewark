@@ -22,10 +22,9 @@ class HomeViewController: UIViewController, HomeViewProtocol {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    gnomesTableView.delegate = self
     gnomesTableView.dataSource = self
-    gnomesTableView.register(GnomeViewCell.self, forCellReuseIdentifier: GnomeViewCell.reusableId)
     presenter?.fetchHome()
+    gnomesTableView.rowHeight = UITableView.automaticDimension
   }
   
   func show(gnomes: [GnomeCardModel]) {
@@ -37,13 +36,13 @@ class HomeViewController: UIViewController, HomeViewProtocol {
   
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension HomeViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return gnomes.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: GnomeViewCell.reusableId) as? GnomeViewCell else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: GnomeViewCell.identifier) as? GnomeViewCell else {
       return UITableViewCell()
     }
     cell.configure(with: gnomes[indexPath.row])
